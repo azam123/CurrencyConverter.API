@@ -118,4 +118,44 @@ dotnet run
 4. Run the project:
    
    dotnet run
-   
+-----------------------------------
+
+Improvement Points
+
+Here are some concise improvement points for the Currency Converter API code:
+
+1. Retry Logic for API Requests:
+   Implement a retry policy using `HttpClientFactory` and Polly to handle transient errors when the Frankfurter API doesn't respond on the first request.
+
+2. Caching:
+   Use caching mechanisms to reduce redundant API calls and improve performance, especially for frequently accessed data.
+
+3. Separation of Concerns:
+   Extract API request logic into a separate service class, following the Single Responsibility Principle (SRP).
+
+4. Configuration Management:
+   Move the Frankfurter API base URL and other configuration settings to `appsettings.json`.
+
+5. Error Handling:
+   Implement a centralized error handling middleware to handle exceptions and return consistent error responses.
+
+6. Logging:
+   Integrate logging to capture request and response details, and errors for better monitoring and debugging.
+
+7. Model Validation:
+   Add model validation attributes to ensure valid input data, e.g., for `amount`, `from`, and `to` parameters.
+
+8. Async/Await Best Practices:
+   Ensure proper use of `ConfigureAwait(false)` to avoid deadlocks in certain synchronization contexts.
+
+9. Rate Limiting:
+   Implement rate limiting to protect the Frankfurter API from being overwhelmed by too many requests.
+
+11. Testing:
+    Expand unit tests to cover more edge cases and integration tests to verify end-to-end functionality.
+
+12. Documentation:
+    Enhance the API documentation, possibly using Swagger, to provide clear API usage instructions.
+
+13. Pagination Handling:
+    Improve pagination handling in the `GetHistoricalRates` method to manage large data sets more efficiently.
